@@ -46,8 +46,8 @@ using QuartersSDK;
 
 Quarters.Instance.AuthorizeGuest(OnAuthorizationSuccess, OnAuthorizationFailed);
 
- public void OnAuthorizationSuccess() {
-	Debug.Log("OnAuthorizationSuccess"); }   public void OnAuthorizationFailed(string error) { 	Debug.LogError("OnAuthorizationFailed: " + error);  }
+public void OnAuthorizationSuccess() {
+	Debug.Log("OnAuthorizationSuccess");}public void OnAuthorizationFailed(string error) {	Debug.LogError("OnAuthorizationFailed: " + error);}
 
 ----
 From this point user is able to buy, spend and get rewarded with Quarters. At some point user should be prompted by the app for signing up to create password protected Quarters account.
@@ -66,7 +66,7 @@ public void OnAuthorizationFailed(string error) {
     Debug.LogError("OnAuthorizationFailed: " + error);
 
 }
- 
+
 
 
 
@@ -79,7 +79,7 @@ Example:
 
 using QuartersSDK;
 
-Quarters.Instance.GetUserDetails(delegate(User user) { 	Debug.Log("User loaded");  } , delegate (string error) { 	Debug.LogError("Cannot load the user details: " + error);  } );  
+Quarters.Instance.GetUserDetails(delegate(User user) {	Debug.Log("User loaded");} , delegate (string error) {	Debug.LogError("Cannot load the user details: " + error);} );
 
 
 Get accounts
@@ -92,9 +92,9 @@ Example:
 
 using QuartersSDK;
 
-Quarters.Instance.GetAccounts(delegate (List<User.Account> accounts) { 
-//success                  }, delegate (string error) { 
-//failed  });
+Quarters.Instance.GetAccounts(delegate (List<User.Account> accounts) {
+//success                }, delegate (string error) {
+//failed});
 
 
 Get Account Balance
@@ -106,7 +106,7 @@ Example:
 
 using QuartersSDK;
 
-Quarters.Instance.GetAccountBalance(delegate (User.Account.Balance balance) {  }, delegate (string error) {   });
+Quarters.Instance.GetAccountBalance(delegate (User.Account.Balance balance) {}, delegate (string error) { });
 
 
 
@@ -139,13 +139,13 @@ Example:
 
 using QuartersSDK;
 
-TransferAPIRequest request = new TransferAPIRequest(int.Parse(tokensInput.text), descriptionInput.text, delegate (string transactionHash) {             
-//success  }, delegate (string error) {
+TransferAPIRequest request = new TransferAPIRequest(int.Parse(tokensInput.text), descriptionInput.text, delegate (string transactionHash) {            
+//success}, delegate (string error) {
 
-//failed              }); 
-//start transfer Quarters.Instance.CreateTransfer(request);  
+//failed            });
+//start transferQuarters.Instance.CreateTransfer(request);
 
- 
+
 
 
 *************
