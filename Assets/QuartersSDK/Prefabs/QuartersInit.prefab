@@ -47,5 +47,5 @@ MonoBehaviour:
   APP_KEY: 
   SERVER_API_TOKEN: 
   ETHEREUM_ADDRESS: 
-  environment: 0
-  useAutoapproval: 1
+  environment: 2
+  useAutoapproval: 0

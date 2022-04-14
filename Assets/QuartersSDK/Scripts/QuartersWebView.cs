@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using System.Runtime.InteropServices;
 using Newtonsoft.Json;
@@ -28,8 +29,7 @@ namespace QuartersSDK {
 
 
         public static QuartersWebView OpenURL(string url) {
-
-            //UniWebViewLogger.Instance.LogLevel = UniWebViewLogger.Level.Verbose;
+            
             Debug.Log("Web view open url: " + url);
             
             
@@ -46,13 +46,13 @@ namespace QuartersSDK {
             UniWebView webView = webViewGO.AddComponent<UniWebView>();
             SetFrameSize(webView);
 
+            
             webView.Load(url);
             webView.Show(false, UniWebViewTransitionEdge.Bottom);
             webView.OnPageStarted += quartersWebView.OnUrlOpenWebView;
 
-
             //handle autorotation
-            webView.OnOreintationChanged += (view, orientation) => {
+            webView.OnOrientationChanged += (view, orientation) => {
                 SetFrameSize(webView);
             };
 
@@ -66,7 +66,7 @@ namespace QuartersSDK {
 
         public void OnUrlOpenWebView(UniWebView webView, string url) {
             
-            Debug.Log("OnUrlOpenWebView " + url);
+            Debug.Log("OnUrlOpenWebView " + url + " is deep link: " + url.IsDeepLink());
             if (url.IsDeepLink()) {
                 //deep link opened
                 if (OnDeepLink != null) OnDeepLink(url, isExternalBrowser: false);
